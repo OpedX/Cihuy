@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Kegiatan Pramuka - Persami 2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B4513;
+            --secondary: #228B22;
+            --accent: #FFD700;
+            --light: #F5F5DC;
+            --dark: #2C2416;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f9f5e7 0%, #e8f5e8 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .scout-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid white;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .scout-logo i {
+            font-size: 60px;
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .date-badge {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Schedule Styles */
+        .schedule-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .schedule-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .schedule-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .schedule-icon i {
+            font-size: 30px;
+            color: white;
+        }
+
+        /* Location Styles */
+        .location-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .map-container {
+            margin: 40px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* RSVP Styles */
+        .rsvp-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .schedule-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .rsvp-form {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Custom Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content" data-aos="fade-down" data-aos-duration="1500">
+                <div class="scout-logo" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-campground"></i>
+                </div>
+                <h1>PERKEMAHAN SABTU MINGGU</h1>
+                <p class="subtitle">Pramuka Penegak Gudep 07.317-07.318</p>
+                <div class="date-badge" data-aos="fade-up" data-aos-delay="600">
+                    <i class="fas fa-calendar-alt"></i> 15-16 Desember 2024
+                </div>
+                <a href="#rsvp" class="btn" data-aos="fade-up" data-aos-delay="900">
+                    Konfirmasi Kehadiran
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator" data-aos="fade-in" data-aos-delay="1200">
+            <i class="fas fa-chevron-down" style="font-size: 24px; color: white;"></i>
+        </div>
+    </header>
+    
+    <!-- Audio Player Section -->
+<section id="audio-player" style="background: var(--light); padding: 40px 0; text-align: center;">
+    <div class="container" data-aos="fade-up">
+        <h2 style="color: var(--primary); margin-bottom: 20px;">Putar Lagu: One Last Time - Ariana Grande</h2>
+        <audio id="oneLastTimeAudio" src="Ariana Grande - One Last Time (Official Lyric Video).mp3" preload="muted"></audio>
+        <button id="playPauseBtn" class="btn" style="font-size: 18px; padding: 12px 25px;">
+            <i class="fas fa-play"></i> Putar
+        </button>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Tentang Kegiatan</h2>
+            <div class="about-content" data-aos="fade-up" data-aos-delay="300">
+                <p>Kami dengan penuh kebanggaan mengundang seluruh anggota Pramuka Penggalang untuk mengikuti Perkemahan Sabtu Minggu (PERSAMI) yang akan diselenggarakan di Bumi Perkemahan Taman Nasional. Kegiatan ini bertujuan untuk mengembangkan karakter, kepemimpinan, dan keterampilan kepramukaan melalui berbagai aktivitas seru dan mendidik.</p>
+                <p style="margin-top: 20px;">Mari kita bersama-sama membangun semangat kebersamaan, disiplin, dan cinta alam dalam kegiatan yang penuh makna ini. Setiap peserta akan mendapatkan pengalaman berharga dan kenangan yang tak terlupakan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Jadwal Kegiatan</h2>
+            <div class="schedule-container">
+                <div class="schedule-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="schedule-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Hari Pertama</h3>
+                    <p><strong>08.00 - 09.00:</strong> Registrasi & Pembagian tenda</p>
+                    <p><strong>09.00 - 10.00:</strong> Upacara pembukaan</p>
+                    <p><strong>10.00 - 12.00:</strong> Games & Ice breaking</p>
+                    <p><strong>13.00 - 15.00:</strong> Pioneering dasar</p>
+                    <p><strong>15.00 - 17.00:</strong> Jelajah alam</p>
+                </div>
+
+                <div class="schedule-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="schedule-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Malam Api Unggun</h3>
+                    <p><strong>19.00 - 21.00:</strong> Api unggun & pentas seni</p>
+                    <p><strong>21.00 - 22.00:</strong> Renungan malam</p>
+                    <p><strong>22.00 - 06.00:</strong> Istirahat malam</p>
+                </div>
+
+                <div class="schedule-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="schedule-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Hari Kedua</h3>
+                    <p><strong>06.00 - 07.00:</strong> Senam pagi</p>
+                    <p><strong>07.00 - 08.00:</strong> Sarapan</p>
+                    <p><strong>08.00 - 10.00:</strong> Wide game</p>
+                    <p><strong>10.00 - 11.00:</strong> Upacara penutupan</p>
+                    <p><strong>11.00 - 12.00:</strong> Pembubaran tenda & pulang</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Lokasi Kegiatan</h2>
+            <div class="location-content" data-aos="fade-up" data-aos-delay="300">
+                <p>Kegiatan akan diselenggarakan di:</p>
+                <h3 style="color: var(--primary); margin: 20px 0;">Bumi Perkemahan Taman Nasional</h3>
+                <p>Jl. Raya Perkemahan No. 123, Kawasan Taman Nasional<br>Kota Scout, 12345</p>
+                
+                <div class="map-container" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d2e9dd40-3333-450d-974f-e99a0d4ac7b0.png" alt="Pemandangan bumi perkemahan dengan tenda-tenda pramuka di antara pepohonan hijau dengan latar belakang pegunungan dan langit biru cerah">
+                </div>
+
+                <div style="margin-top: 30px;" data-aos="fade-up" data-aos-delay="900">
+                    <h4 style="color: var(--secondary); margin-bottom: 15px;">Fasilitas yang Tersedia:</h4>
+                    <ul style="list-style: none; text-align: left; max-width: 400px; margin: 0 auto;">
+                        <li style="margin-bottom: 10px;">✓ Area perkemahan yang luas dan aman</li>
+                        <li style="margin-bottom: 10px;">✓ Toilet dan kamar mandi bersih</li>
+                        <li style="margin-bottom: 10px;">✓ Sumber air bersih</li>
+                        <li style="margin-bottom: 10px;">✓ Area makan dan dapur umum</li>
+                        <li style="margin-bottom: 10px;">✓ Pos kesehatan</li>
+                        <li style="margin-bottom: 10px;">✓ Tempat parkir yang aman</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content" data-aos="fade-up">
+                <h3 style="margin-bottom: 20px;">Tetap Terhubung</h3>
+                <p>Untuk informasi lebih lanjut, silakan hubungi kami melalui:</p>
+                
+                <div class="social-links">
+                    <a href="https://wa.me/qr/XYUTYKTI5QODP1" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/pramuka_smkn1maluk?igsh=YzNydDd1b2M3amJh" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" data-aos="zoom-in" data-aos-delay="600">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+
+                <p style="margin-top: 30px; opacity: 0.8;">
+                    <i class="fas fa-phone"></i> 0812-3456-7890 (Kak Andi)<br>
+                    <i class="fas fa-envelope"></i> persami2024@pramuka.org
+                </p>
+
+                <p style="margin-top: 30px; opacity: 0.6;">
+                    © 2024 Pramuka Penggalang Gudep 01.001-01.002. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 1200,
+                once: true,
+                easing: 'ease-out-cubic',
+                offset: 100
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Form submission handling
+            const form = document.getElementById('attendanceForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulate form submission
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                // Show success message
+                alert('Terima kasih! Konfirmasi kehadiran Anda telah berhasil dikirim.\n\n' +
+                      `Nama: ${data.name}\n` +
+                      `Gudep: ${data.gudep}\n` +
+                      `Status: ${data.attendance}`);
+                
+                form.reset();
+            });
+
+            // Additional scroll animations with GSAP
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Parallax effect for header
+            gsap.to('header', {
+                backgroundPosition: '50% 100%',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: 'header',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+
+            // Custom fade-in animations for elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                ScrollTrigger.create({
+                    trigger: element,
+                    start: 'top 80%',
+                    onEnter: () => element.classList.add('visible'),
+                    once: true
+                });
+            });
+
+            // Animate schedule cards on hover
+            const scheduleCards = document.querySelectorAll('.schedule-card');
+            scheduleCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card, {
+                        scale: 1.05,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, {
+                        scale: 1,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+        });
+
+        // Add some interactive elements
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const header = document.querySelector('header');
+            
+            // Parallax effect for header background
+            header.style.backgroundPosition = `50% ${scrollPosition * 0.5}px`;
+            
+            // Animate scroll indicator opacity
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (scrollIndicator) {
+                scrollIndicator.style.opacity = 1 - (scrollPosition / 300);
+            }
+        });
+        
+        // Audio player controls
+const audio = document.getElementById('oneLastTimeAudio');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const playIcon = '<i class="fas fa-play"></i> Putar';
+const pauseIcon = '<i class="fas fa-pause"></i> Jeda';
+
+playPauseBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        playPauseBtn.innerHTML = pauseIcon;
+    } else {
+        audio.pause();
+        playPauseBtn.innerHTML = playIcon;
+    }
+});
+
+// Optional: Reset button when audio ends
+audio.addEventListener('ended', () => {
+    playPauseBtn.innerHTML = playIcon;
+});
+    </script>
+</body>
+</html>
